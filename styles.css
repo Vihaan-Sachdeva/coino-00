@@ -417,6 +417,8 @@ h1 {
   padding: 1.1rem;
   background: var(--surface);
   box-shadow: var(--shadow);
+  -webkit-backdrop-filter: blur(9px);
+  transform: translateZ(0);
   backdrop-filter: blur(9px);
   transition: transform 0.25s ease, border-color 0.25s ease;
 }
