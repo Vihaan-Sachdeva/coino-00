@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coino | Smart Budgeting for Year 9</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-bg">
+      <div class="blob one"></div>
+      <div class="blob two"></div>
+      <div class="blob three"></div>
+    </div>
+
+    <header class="site-header container">
+      <div class="topbar">
+        <a class="brand" href="#home">
+          <span class="logo-mark">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M6 12a6 6 0 1 0 12 0A6 6 0 1 0 6 12" fill="none" stroke="currentColor" stroke-width="1.8" />
+              <path d="M8.4 12h7.2M12 8.4v7.2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+            </svg>
+          </span>
+          <span class="brand-name">Coino</span>
+        </a>
+        <nav class="top-links">
+          <a class="active" href="#home">Home</a>
+          <a href="#planner">Planner</a>
+          <a href="#goals">Goals</a>
+          <a href="#insights">Insights</a>
+          <button class="mode-toggle" data-mode-toggle type="button"></button>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="hero reveal parallax" id="home">
+        <div class="hero-content">
+          <span class="eyebrow">Year 9 Money Skills</span>
+          <h1>One space for budgeting, goals and insights.</h1>
+          <p class="lead">
+            Coino is a single-page budgeting experience for 13-year-old Year 9 students. Scroll through the sections, set your
+            budget, add up to 5 goals, and see a live insights pie chart based on your own categories.
+          </p>
+          <div class="actions">
+            <a class="btn primary" href="#planner">Start Planner</a>
+            <a class="btn ghost" href="#insights">View Insights</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-block reveal" id="planner">
+        <h2 class="section-title">Planner</h2>
+        <p class="section-sub">Set your monthly budget in AED and log your spending categories for live insights.</p>
+        <div class="stack">
+          <article class="chart-box">
+            <h3>Budget setup</h3>
+            <div class="input-grid">
+              <label>Monthly budget (AED)<input id="monthBudget" type="number" value="600" min="0" /></label>
+              <label>Needs (AED)<input id="needSpend" type="number" value="250" min="0" /></label>
+              <label>Wants (AED)<input id="wantSpend" type="number" value="180" min="0" /></label>
+              <label>Savings (AED)<input id="saveSpend" type="number" value="120" min="0" /></label>
+            </div>
+            <div class="stat-row">
+              <div class="stat"><small>Needs</small><strong data-stat="needs">AED 0</strong></div>
+              <div class="stat"><small>Wants</small><strong data-stat="wants">AED 0</strong></div>
+              <div class="stat"><small>Savings</small><strong data-stat="save">AED 0</strong></div>
+            </div>
+            <div class="metric"><span>Remaining</span><strong data-stat="left">AED 0</strong></div>
+          </article>
+          <article class="chart-box">
+            <h3>Expense entries</h3>
+            <div class="input-grid expense-row">
+              <label>Expense name<input id="expenseName" type="text" placeholder="Bus card top-up" /></label>
+              <label>Category<input id="expenseCategory" type="text" placeholder="Transport" /></label>
+              <label>Amount (AED)<input id="expenseAmount" type="number" min="1" value="20" /></label>
+              <button class="btn primary" id="addExpenseBtn" type="button">Add Expense</button>
+            </div>
+            <div class="card-list" id="expenseList"></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section section-block reveal parallax-soft" id="goals">
+        <h2 class="section-title">Goals</h2>
+        <p class="section-sub">Create up to 5 goals. Every goal has its own progress bar and timeline.</p>
+        <article class="chart-box">
+          <div class="goal-entry">
+            <label>Goal name<input id="goalName" type="text" placeholder="New headphones" /></label>
+            <label>Target (AED)<input id="goalAmount" type="number" min="1" value="350" /></label>
+            <label>Saved (AED)<input id="goalSaved" type="number" min="0" value="80" /></label>
+            <label>Weekly save (AED)<input id="goalWeekly" type="number" min="1" value="25" /></label>
+            <button class="btn primary" id="addGoalBtn" type="button">Add Goal</button>
+          </div>
+          <div class="goal-list" id="goalList"></div>
+        </article>
+      </section>
+
+      <section class="section section-block reveal" id="insights">
+        <h2 class="section-title">Insights</h2>
+        <p class="section-sub">
+          Add filters with names and amounts, turn them on or off for the chart, edit values anytime, or delete them. The pie chart reflects your active filters only.
+        </p>
+        <div class="stack">
+          <article class="chart-box">
+            <h3>Custom filters</h3>
+            <div class="filter-list" id="filterList"></div>
+            <div class="goal-entry filter-add-row">
+              <label>Filter name<input id="newFilterInput" type="text" placeholder="Category name" /></label>
+              <label>Amount (AED)<input id="newFilterAmount" type="number" min="0" value="0" /></label>
+              <button class="btn primary" id="addFilterBtn" type="button">Add Filter</button>
+            </div>
+            <div class="metric"><span>Chart total (active filters)</span><strong id="filteredTotal">AED 0</strong></div>
+          </article>
+          <article class="chart-box">
+            <h3>Spending pie chart</h3>
+            <svg class="pie-chart" id="pieChart" viewBox="0 0 240 240" aria-label="Functional spending pie chart"></svg>
+            <div class="pie-legend" id="pieLegend"></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section section-block reveal">
+        <h2 class="section-title">How Coino Helps</h2>
+        <div class="stack">
+          <article class="card">
+            <div class="icon-wrap"><svg viewBox="0 0 24 24"><path d="M5 19h14M5 5h14v10H5zM9 9h6" /></svg></div>
+            <h3>Planner + Goals + Insights together</h3>
+            <p>Everything updates in one interface, so your budgeting decisions and tracking stay connected.</p>
+          </article>
+          <article class="card">
+            <div class="icon-wrap"><svg viewBox="0 0 24 24"><path d="m5 12 4 4 10-10" /></svg></div>
+            <h3>Practical and student-friendly</h3>
+            <p>Fast setup, clear UI, and functional data views with no fake charts.</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
