@@ -324,20 +324,16 @@ h1 {
 }
 
 .card {
-  background-color: var(--surface-strong); 
-  background-image: linear-gradient(to bottom, var(--surface), var(--surface));
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background: var(--surface-strong); 
   border: 1px solid var(--line);
   border-radius: 1.25rem;
   padding: 1.1rem;
-  box-shadow: var(--shadow);
-  transform: translateZ(0);
+  box-shadow: var(--shadow); 
   transition: transform 0.25s ease, border-color 0.25s ease;
 }
 
 .card:hover {
-  transform: translateY(-4px) translateZ(0);
+  transform: translateY(-4px);
   border-color: var(--primary);
 }
 
