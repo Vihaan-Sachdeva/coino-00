@@ -219,7 +219,7 @@ function renderGoals() {
       const remaining = Math.max(0, goal.amount - savedClamped);
       const weeks = Math.ceil(remaining / Math.max(1, goal.weekly));
       return `
-      <article class="goal-card">
+      <article class="card">
         <div class="metric">
           <strong>${escapeHtml(goal.name)}</strong>
           <button type="button" data-remove-goal="${index}">Remove</button>
